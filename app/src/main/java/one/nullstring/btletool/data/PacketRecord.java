@@ -15,7 +15,7 @@ public class PacketRecord {
     private ATTHeader attHeader;
     @SerializedName("packet_data")
     private byte[] packetData;
-
+    @SerializedName("packet_data_str")
     private String packetDataString;
     @SerializedName("packet_number")
     private int packetNumber;
@@ -30,6 +30,9 @@ public class PacketRecord {
         return String.format(Locale.US, "%02X:%02X:%02X:%02X:%02X:%02X",
                 destinationAddress[5], destinationAddress[4], destinationAddress[3],
                 destinationAddress[2], destinationAddress[1], destinationAddress[0]);
+    }
+    public void setDestinationAddress(byte[] destinationAddress) {
+        this.destinationAddress = destinationAddress;
     }
     public String getPacketDataString() { return packetDataString; }
     public void setPacketDataString(String packetDataString) { this.packetDataString = packetDataString; }
