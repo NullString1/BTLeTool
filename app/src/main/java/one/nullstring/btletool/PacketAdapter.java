@@ -60,6 +60,7 @@ public class PacketAdapter extends RecyclerView.Adapter<PacketAdapter.PacketView
         Date timestamp = new Date(packet.getHeader().getTimestampMilliseconds());
         holder.packetNameText.setText(String.format(Locale.getDefault(), "Packet %d @ %s", position, dateFormat.format(timestamp)));
         holder.packetDataView.setText(packet.getPacketDataString());
+        holder.destinationAddressText.setText(packet.getDestinationAddress());
 
         boolean isSent = packet.getAttHeader().getCommand() == ATTCommand.WRITE_COMMAND;
         if (isSent) {
@@ -106,6 +107,7 @@ public class PacketAdapter extends RecyclerView.Adapter<PacketAdapter.PacketView
     public static class PacketViewHolder extends RecyclerView.ViewHolder {
         final TextView packetNameText;
         final TextView packetDataView;
+        final TextView destinationAddressText;
         final ImageView packetDirectionImage;
 
         public PacketViewHolder(@NonNull View itemView) {
@@ -113,6 +115,7 @@ public class PacketAdapter extends RecyclerView.Adapter<PacketAdapter.PacketView
             packetNameText = itemView.findViewById(R.id.packetNameText);
             packetDataView = itemView.findViewById(R.id.packetDataView);
             packetDirectionImage = itemView.findViewById(R.id.packetDirectionImage);
+            destinationAddressText = itemView.findViewById(R.id.destinationAddrText);
         }
     }
 }

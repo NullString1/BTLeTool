@@ -2,6 +2,8 @@ package one.nullstring.btletool.data;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.Locale;
+
 public class PacketRecord {
     @SerializedName("header")
     private RawPacketHeader header;
@@ -17,6 +19,18 @@ public class PacketRecord {
     private String packetDataString;
     @SerializedName("packet_number")
     private int packetNumber;
+
+    @SerializedName("dest_addr")
+    private byte[] destinationAddress;
+
+    public String getDestinationAddress() {
+        if (destinationAddress == null || destinationAddress.length != 6) {
+            return null;
+        }
+        return String.format(Locale.US, "%02X:%02X:%02X:%02X:%02X:%02X",
+                destinationAddress[5], destinationAddress[4], destinationAddress[3],
+                destinationAddress[2], destinationAddress[1], destinationAddress[0]);
+    }
     public String getPacketDataString() { return packetDataString; }
     public void setPacketDataString(String packetDataString) { this.packetDataString = packetDataString; }
     public RawPacketHeader getHeader() { return header; }

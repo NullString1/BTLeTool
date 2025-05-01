@@ -2,6 +2,8 @@ package one.nullstring.btletool.data;
 
 import com.google.gson.Gson;
 
+import java.util.Comparator;
+
 public class BTSnoopParser {
 
     static {
@@ -15,6 +17,7 @@ public class BTSnoopParser {
         Gson gson = new Gson();
         BTSnoopFile btSnoopFile = gson.fromJson(parsedData, BTSnoopFile.class);
         btSnoopFile.getPackets().forEach(packetRecord -> packetRecord.setPacketDataString(new String(packetRecord.getPacketData())));
+        btSnoopFile.getPackets().sort(Comparator.comparingLong(packetRecord -> packetRecord.getHeader().getTimestampMilliseconds()));
         return btSnoopFile;
     }
 
