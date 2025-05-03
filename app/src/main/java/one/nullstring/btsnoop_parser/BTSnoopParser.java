@@ -1,4 +1,4 @@
-package one.nullstring.btletool.data;
+package one.nullstring.btsnoop_parser;
 
 import com.google.gson.Gson;
 
@@ -17,3 +17,4 @@ public class BTSnoopParser {
     }
 
 }
+

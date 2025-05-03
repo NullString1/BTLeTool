@@ -26,9 +26,9 @@ import com.google.android.material.snackbar.Snackbar;
 import java.io.IOException;
 import java.io.InputStream;
 
-import one.nullstring.btletool.data.BTSnoopFile;
-import one.nullstring.btletool.data.BTSnoopParser;
-import one.nullstring.btletool.data.PacketRecord;
+import one.nullstring.btsnoop_parser.BTSnoopFile;
+import one.nullstring.btsnoop_parser.BTSnoopParser;
+import one.nullstring.btsnoop_parser.PacketRecord;
 
 public class MainActivity extends AppCompatActivity {
 

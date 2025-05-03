@@ -17,8 +17,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
-import one.nullstring.btletool.data.ATTCommand;
-import one.nullstring.btletool.data.PacketRecord;
+import one.nullstring.btsnoop_parser.ATTCommand;
+import one.nullstring.btsnoop_parser.PacketRecord;
 
 public class PacketAdapter extends RecyclerView.Adapter<PacketAdapter.PacketViewHolder> {
 
